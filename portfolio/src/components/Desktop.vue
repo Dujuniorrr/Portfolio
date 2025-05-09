@@ -11,7 +11,7 @@
   
         <AppWindow v-if="windows['vs-code']" title="VS Code" :x="positions['vs-code'].x" :y="positions['vs-code'].y"
           :initialWidth="740" :initialHeight="500" @close="windows['vs-code'] = false"
-          @start-drag="startDrag('vs-code')" >
+          @start-drag="startDrag('vs-code')"  >
           <VsCodeContent />
         </AppWindow>
   
@@ -21,8 +21,10 @@
         <AppWindow v-if="windows.settings" title="Settings" :x="positions.settings.x" :y="positions.settings.y"
           @close="windows.settings = false" @start-drag="startDrag('settings')" />
   
-        <AppWindow v-if="windows.terminal" title="Terminal" :x="positions.terminal.x" :y="positions.terminal.y"
-          @close="windows.terminal = false" @start-drag="startDrag('terminal')" />
+        <AppWindow class="d-flex" v-if="windows.terminal" title="Terminal" :x="positions.terminal.x" :y="positions.terminal.y"
+          @close="windows.terminal = false" @start-drag="startDrag('terminal')" >
+          <TerminalContent />
+        </AppWindow>
   
         <AppWindow v-if="windows.trash" title="Trash" :x="positions.trash.x" :y="positions.trash.y"
           @close="windows.trash = false" @start-drag="startDrag('trash')" @drag="onDrag" @stop-drag="stopDrag" />
@@ -38,6 +40,7 @@
   import Dock from './Dock.vue'
   import AppWindow from './AppWindow.vue'
   import VsCodeContent from './contents/VsCodeContent.vue'
+import TerminalContent from './contents/TerminalContent.vue'
   
   const forceVisible = ref(true)
   const isMouseNearBottom = ref(false)
