@@ -3,16 +3,13 @@
     <!-- Menu Lateral -->
     <div class="sidebar">
       <div class="sidebar-item active">
-        <i class="sidebar-icon file-icon"></i>
-        <span>Explorer</span>
+        <i class="codicon codicon-files"></i>
       </div>
       <div class="sidebar-item">
-        <i class="sidebar-icon terminal-icon"></i>
-        <span>Terminal</span>
+        <i class="codicon codicon-terminal"></i>
       </div>
       <div class="sidebar-item">
-        <i class="sidebar-icon source-icon"></i>
-        <span>Source Control</span>
+        <i class="codicon codicon-source-control"></i>
       </div>
     </div>
 
@@ -20,25 +17,13 @@
     <div class="code-editor">
       <!-- Barra de Abas -->
       <div class="tab-bar">
-        <span
-          class="tab"
-          :class="{ active: activeTab === 'index.js' }"
-          @click="setActiveTab('index.js')"
-        >
+        <span class="tab" :class="{ active: activeTab === 'index.js' }" @click="setActiveTab('index.js')">
           <i class="tab-icon js-icon"></i> index.js
         </span>
-        <span
-          class="tab"
-          :class="{ active: activeTab === 'App.vue' }"
-          @click="setActiveTab('App.vue')"
-        >
+        <span class="tab" :class="{ active: activeTab === 'App.vue' }" @click="setActiveTab('App.vue')">
           <i class="tab-icon vue-icon"></i> App.vue
         </span>
-        <span
-          class="tab"
-          :class="{ active: activeTab === 'README.md' }"
-          @click="setActiveTab('README.md')"
-        >
+        <span class="tab" :class="{ active: activeTab === 'README.md' }" @click="setActiveTab('README.md')">
           <i class="tab-icon readme-icon"></i> README.md
         </span>
       </div>
@@ -94,24 +79,25 @@ const setActiveTab = (tab) => {
 
 /* Sidebar */
 .sidebar {
-  width: 60px;
+  /* width: 40px; */
   background-color: #333;
   display: flex;
+  align-items: start;
   flex-direction: column;
-  align-items: center;
-  padding-top: 20px;
+  /* padding-top: 20px; */
 }
 
 .sidebar-item {
   color: #dcdcdc;
   font-size: 14px;
-  padding: 10px 0;
+  padding: 10px 10px;
   cursor: pointer;
   width: 100%;
-  text-align: center;
+  text-align: start;
 }
 
-.sidebar-item:hover, .sidebar-item.active {
+.sidebar-item:hover,
+.sidebar-item.active {
   background-color: #007acc;
   color: white;
 }
@@ -127,7 +113,7 @@ const setActiveTab = (tab) => {
   flex-grow: 1;
   background-color: #1e1e1e;
   color: #dcdcdc;
-  padding: 20px;
+  padding: 0px 2px;
   display: flex;
   flex-direction: column;
 }
@@ -135,7 +121,7 @@ const setActiveTab = (tab) => {
 /* Barra de Abas */
 .tab-bar {
   display: flex;
-  gap: 10px;
+  /* gap: 10px; */
   margin-bottom: 10px;
 }
 
@@ -143,7 +129,7 @@ const setActiveTab = (tab) => {
   background-color: #333;
   padding: 8px 15px;
   cursor: pointer;
-  border-radius: 5px;
+  /* border-radius: 5px; */
   display: flex;
   align-items: center;
   font-size: 0.85rem;
@@ -165,17 +151,20 @@ const setActiveTab = (tab) => {
 }
 
 .js-icon::before {
-  content: '\f0c9'; /* Código para ícone JavaScript */
+  content: '\f0c9';
+  /* Código para ícone JavaScript */
   font-family: 'Font Awesome 5 Free';
 }
 
 .vue-icon::before {
-  content: '\f186'; /* Código para ícone Vue */
+  content: '\f186';
+  /* Código para ícone Vue */
   font-family: 'Font Awesome 5 Free';
 }
 
 .readme-icon::before {
-  content: '\f02d'; /* Código para ícone README */
+  content: '\f02d';
+  /* Código para ícone README */
   font-family: 'Font Awesome 5 Free';
 }
 
