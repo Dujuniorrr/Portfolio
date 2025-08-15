@@ -18,7 +18,7 @@
       <!-- Barra de Abas -->
       <div class="tab-bar">
         <span class="tab" :class="{ active: activeTab === 'index.js' }" @click="setActiveTab('index.js')">
-          <i class="tab-icon js-icon"></i> index.js
+          <Icon icon="simple-icons:javascript" class="icon icon-js" width="10" height="10" /> index.js
         </span>
         <span class="tab" :class="{ active: activeTab === 'App.vue' }" @click="setActiveTab('App.vue')">
           <i class="tab-icon vue-icon"></i> App.vue
@@ -74,7 +74,7 @@ const setActiveTab = (tab) => {
 .vs-code-container {
   display: flex;
   height: 100vh;
-  font-family: 'Courier New', monospace;
+  /* font-family: 'Courier New', monospace; */
 }
 
 /* Sidebar */
@@ -85,6 +85,15 @@ const setActiveTab = (tab) => {
   align-items: start;
   flex-direction: column;
   /* padding-top: 20px; */
+}
+
+.icon {
+  margin-right: 8px;
+  margin-bottom: 4px;
+}
+
+.icon-js{
+  color: rgb(234, 234, 14);
 }
 
 .sidebar-item {
@@ -132,7 +141,7 @@ const setActiveTab = (tab) => {
   /* border-radius: 5px; */
   display: flex;
   align-items: center;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   transition: background-color 0.3s ease;
 }
 
