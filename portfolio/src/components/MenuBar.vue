@@ -50,6 +50,9 @@ function updateClock() {
 }
 
 .menu-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
   display: flex;
   height: 30px;
   justify-content: space-between;
@@ -60,6 +63,8 @@ function updateClock() {
   /* Garantir que a barra de menu ocupe toda a largura */
   box-sizing: border-box;
   /* Considera o padding na largura total */
+  z-index: 9999;
+  backdrop-filter: blur(10px);
 }
 
 .menu-left {

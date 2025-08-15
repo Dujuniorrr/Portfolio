@@ -251,52 +251,124 @@
     scrollToBottom();
   });
   </script>
-  
-  <style scoped>
-  .terminal-container {
-    width: 100%;
-    height: 100vh;
-    color: #00ff7f;
-    font-family: 'Menlo', monospace;
-    display: flex;
-    justify-content: center;
-    background-color: #1e1e1e;
-    overflow: hidden;
-    flex-direction: column;
-    box-shadow: 0 0 10px rgba(0, 255, 127, 0.3);
-    cursor: text;
-  }
-  .terminal-body {
-    flex-grow: 1;
-    padding: 15px;
-    overflow-y: auto;
-    font-size: 0.9em;
-  }
-  .terminal-line {
-    display: flex;
-    align-items: flex-start;
-    white-space: pre-wrap;
-    margin-bottom: 4px;
-  }
-  .prompt {
-    color: #00ff7f;
-    margin-right: 5px;
-  }
-  .command {
-    color: #ffffff;
-  }
-  .response {
-    margin-left: 1.5em;
-    color: #cccccc;
-  }
-  .terminal-input {
-    margin-top: 0.55px;
-    background: none;
-    border: none;
-    color: #00ff7f;
-    outline: none;
-    font-family: inherit;
-    flex-grow: 1;
-  }
-  </style>
-  
+ 
+<style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap');
+
+.terminal-container {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(135deg, #1a1e2a 0%, #0d0f17 100%);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  box-shadow: 
+    0 0 25px rgba(0, 255, 127, 0.2),
+    inset 0 0 10px rgba(0, 100, 50, 0.3);
+  position: relative;
+  cursor: text;
+  font-family: 'Fira Code', 'Menlo', monospace;
+}
+
+.terminal-body {
+  flex-grow: 1;
+  padding: 40px 20px 20px;
+  overflow-y: auto;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  background: rgba(10, 12, 18, 0.8);
+  position: relative;
+  z-index: 2;
+}
+
+.terminal-line {
+  display: flex;
+  align-items: flex-start;
+  white-space: pre-wrap;
+  margin-bottom: 8px;
+  position: relative;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.prompt {
+  color: #50fa7b;
+  margin-right: 10px;
+  min-width: 20px;
+  text-shadow: 0 0 5px rgba(80, 250, 123, 0.5);
+}
+
+.command {
+  color: #f8f8f2;
+  font-weight: 500;
+}
+
+.response {
+  color: #e1dde7;
+  margin-left: 30px;
+  width: calc(100% - 30px);
+  overflow-wrap: break-word;
+  text-shadow: 0 0 3px rgba(189, 147, 249, 0.3);
+}
+
+.terminal-line.current {
+  position: relative;
+}
+
+.terminal-input {
+  background: transparent;
+  border: none;
+  color: #f8f8f2;
+  outline: none;
+  font-family: inherit;
+  flex-grow: 1;
+  font-size: 0.95rem;
+  padding: 0;
+  caret-color: #50fa7b;
+  caret-shape: block;
+  text-shadow: 0 0 3px rgba(248, 248, 242, 0.3);
+}
+
+.terminal-input::selection {
+  background: rgba(80, 250, 123, 0.3);
+}
+
+/* Efeito de linha de digitação */
+.terminal-line.current::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -3px;
+  height: 1px;
+  /* background: linear-gradient(90deg, 
+    transparent 0%, 
+    #50fa7b 30%, 
+    #50fa7b 70%, 
+    transparent 100%); */
+  opacity: 0.7;
+}
+
+/* Scrollbar estilizada */
+.terminal-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.terminal-body::-webkit-scrollbar-track {
+  background: rgba(10, 15, 25, 0.5);
+}
+
+.terminal-body::-webkit-scrollbar-thumb {
+  background: rgba(80, 250, 123, 0.3);
+  border-radius: 4px;
+}
+
+.terminal-body::-webkit-scrollbar-thumb:hover {
+  background: rgba(80, 250, 123, 0.5);
+}
+</style>
